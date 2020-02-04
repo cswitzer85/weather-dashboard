@@ -15,7 +15,15 @@
         <h1>Header Here</h1>
     </header>
     <main class="col-12">
-        <aside class="col-4">aside</aside>
+        <aside class="col-4">
+            <form class="input-group flex-nowrap">
+                <input type="text" id="cityNameInput" style="margin-top: 5px;" placeholder="City Name"
+                    aria-label="City Name">
+                <div class="input-group-prepend">
+                    <button class="input-group-text" id="searchButton">Search</button>
+                </div>
+            </form>
+        </aside>
         <section class="col-8">
             <div class="col-12">col1</div>
         </section>
@@ -23,11 +31,12 @@
             <div class="col-12" style="background-color: salmon;">col2</div>
         </section>
     </main>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 
 </html>
