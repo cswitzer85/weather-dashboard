@@ -19,8 +19,10 @@
             <div>
                 <input type="text" id="cityNameInput" style="margin-top: 5px;" name="City Name" aria-label="City Name">
                 <button class="input-group-text" id="searchButton" onclick="getWeather()">Search</button>
-            </div>
-            <div id="searchHistory">
+                <div>Search history: <button id="clearHistoryButton" onclick="clearHist()">Clear History</button>
+                    <br>
+                <div id="searchHistory"></div>
+                </div>
             </div>
         </aside>
         <section class="col-8">
@@ -28,7 +30,7 @@
             </div>
         </section>
         <section>
-            <div class="col-12" style="background-color: salmon;">col2</div>
+            <div id="forecastWeather" class="col-12" style="background-color: salmon;">col2</div>
         </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"

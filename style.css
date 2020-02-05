@@ -35,5 +35,19 @@ section {
 
 #searchButton {
     height: 38px;
+    width: 80px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+#clearHistoryButton {
+    margin-left: 10px;
+    width: 110px;
+    text-align: center;
+
+}
+button {
+    width: 150px;
     margin-top: 5px;
+    margin-left: -10px;
+    text-align: left;
 }
