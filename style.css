@@ -1,3 +1,6 @@
+body {
+    font-family: sans-serif;
+}
 header {
     width: 100%;
     height: 125px;
@@ -17,14 +20,14 @@ aside {
     width: 20%;
     display: flex;
     float: left;
-    height: 500px;
-    background-color: lightgreen;
+    height: 700px;
+    /* background-color: lightgreen; */
 }
 
 section {
     display: flex;
-    height: 250px;
-    background-color: lightsalmon;
+    height: 350px;
+    /* background-color: lightsalmon; */
 }
 
 #cityNameInput {
@@ -50,4 +53,14 @@ button {
     margin-top: 5px;
     margin-left: -10px;
     text-align: left;
+    background-color: #fffeac;
+    text-align: center;
+}
+
+#cityNameInput {
+    background-color: #fffeac;
+}
+
+div.tempHumWind {
+    padding-right: 30px;
 }

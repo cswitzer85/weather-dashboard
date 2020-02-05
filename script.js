@@ -1,55 +1,14 @@
-// var pastSearches = [];
-
-// var day = currentTimeAndDate.getDate();
-
-// function clearCurrentWeather (){
-//     $("#currentWeather");
-// }
-
-
-//Weather API key: f3d9d80cd57331f1adc06438f8df083c
-//http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID={f3d9d80cd57331f1adc06438f8df083c}
-
-// pastSearches.push(setCity)
-// displaySearchHistory();
-
-// function getUV (){
-// var lat = response.coord.lon
-// var lon = response.coord.lat
-// $.ajax({
-//     url: "http://api.openweathermap.org/data/2.5/uvi/history?appid=166a433c57516f51dfab1f7edaed8413&lat=" + lat + "&lon= + lon",
-//     method: "GET"
-// })
-// .then(function (response) {
-// uv = response.value;
-//     pUV = $("<p>").text("UV index: " + UV)
-//     currentWeatherDiv.append(pUV)
-//     $("#currentWeather").append(currentWeatherDiv)
-// })}
-
-// function displaySearchHistory(){
-//         $("#searchHistory").empty();
-
-//         for (var i = 0; i < pastSearches.length; i++) {
-//           var a = $("<button>");
-//           a.addClass("pastCities");
-//           a.attr("data-name", pastSearches[i]);
-//           a.text(pastSearches[i]);
-//           $("#searchHistory").append(a);
-//         }
-//       }
-
+//clears the search history by clearing local storage and removing all buttons that were previously appended
 function clearHist() {
     localStorage.clear();
     $("#searchHistory").empty();
 }
-
-// var frisco = $.ajax({ url: "https://api.openweathermap.org/data/2.5/weather?q=frisco&units=imperial&appid=166a433c57516f51dfab1f7edaed8413", method: "GET"}) .then(function (response) {console.log(response);})
-
+//submission of a city will gather all information and print the the screen, as well as create a button that can be used to recall city info
 function getWeather() {
     $("#currentWeather").empty();
     cityInput = document.getElementById("cityNameInput").value;
     var queryurl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
+    //initial API call for data
     $.ajax({
             url: queryurl,
             method: "GET"
@@ -58,7 +17,7 @@ function getWeather() {
 
             var currentWeatherDiv = $("<div.current>");
             var city = response.name;
-            pName = $("<p>").text("City: " + city)
+            pName = $("<p>").text("City: " + city).css("font-size", "xx-large")
             currentWeatherDiv.append(pName)
             $("#currentWeather").append(currentWeatherDiv)
 
@@ -74,38 +33,33 @@ function getWeather() {
             $("#currentWeather").append(currentWeatherDiv)
 
             var temp = response.main.temp;
-            ptemp = $("<p>").text("Temperature: " + temp)
+            ptemp = $("<div>").text("Temperature: " + temp)
             currentWeatherDiv.append(ptemp)
             $("#currentWeather").append(currentWeatherDiv)
 
             var humidity = response.main.humidity;
-            pHumidity = $("<p>").text("Humidity: " + humidity)
+            pHumidity = $("<div>").text("Humidity: " + humidity)
             currentWeatherDiv.append(pHumidity)
             $("#currentWeather").append(currentWeatherDiv)
 
             var wind = response.wind.speed;
-            pWind = $("<p>").text("Wind: " + wind)
+            pWind = $("<div>").text("Wind: " + wind)
             currentWeatherDiv.append(pWind)
             $("#currentWeather").append(currentWeatherDiv)
 
-            // var weatherDescription = response.weather[0].main;
-            // var weatherDescription = response.weather[0].description;
-            // var weatherDescription = response.weather[0].icon;
+            var weatherDescription = response.weather[0].description;
+            pWeatherDescription = $("<p>").text("Weather Condition: " + weatherDescription)
+            currentWeatherDiv.append(pWeatherDescription)
+            $("#currentWeather").append(currentWeatherDiv)
 
-            //reformat unix time
-            // var unix_timestamp = 1580876826
-            // var date = new Date(unix_timestamp * 1000);
-            // var hours = date.getHours();
-            // var minutes = "0" + date.getMinutes();
-            // var seconds = "0" + date.getSeconds();
-
-            // var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-
-            var lat = response.coord.lat
-            var lon = response.coord.lon
+            var weatherIcon = response.weather[0].icon;
+            pIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
+            currentWeatherDiv.append(pIcon)
+            $("#currentWeather").append(currentWeatherDiv)
 
             //UV API call
+            var lat = response.coord.lat
+            var lon = response.coord.lon
             $.ajax({
                     url: "http://api.openweathermap.org/data/2.5/uvi?appid=166a433c57516f51dfab1f7edaed8413&lat=" + lat + "&lon=" + lon,
                     method: "GET"
@@ -131,13 +85,12 @@ function getWeather() {
                 })
 
 
-
+            //button created for current city
             cityButtonName = response.name;
             localStorage.setItem(cityButtonName, "https://api.openweathermap.org/data/2.5/weather?q=" + cityButtonName + "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413");
             var cityButtonURL = localStorage.getItem(cityButtonName.toString())
             var historicWeatherDiv = $("<div.historic>");
-            var city = response.name;
-            buttonName = $("<button>").text(city)
+            buttonName = $("<button>").text(cityButtonName)
             historicWeatherDiv.append(buttonName)
             breakElement = $("<br>")
             $("#searchHistory").append(historicWeatherDiv)
@@ -146,13 +99,3 @@ function getWeather() {
 
         });
 }
-
-// let unix_timestamp = 1549312452
-// var date = new Date(unix_timestamp * 1000);
-// var hours = date.getHours();
-// var minutes = "0" + date.getMinutes();
-// var seconds = "0" + date.getSeconds();
-
-// var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-// console.log(formattedTime);
