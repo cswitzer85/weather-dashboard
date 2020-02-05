@@ -1,4 +1,6 @@
-var pastSearches = [];
+// var pastSearches = [];
+
+// var day = currentTimeAndDate.getDate();
 
 // function clearCurrentWeather (){
 //     $("#currentWeather");
@@ -60,6 +62,16 @@ function getWeather() {
             currentWeatherDiv.append(pName)
             $("#currentWeather").append(currentWeatherDiv)
 
+            var currentTimeAndDate = new Date();
+            var year = currentTimeAndDate.getFullYear();
+            var month = currentTimeAndDate.getMonth();
+            var day = currentTimeAndDate.getDate();
+            var weekdays = moment.weekdays();
+            var monthArray = ["January", "Februrary", "March", "April", "May", "June", "July", "August", "Sepetember", "October", "November", "December"]
+            var dayOfWeek = weekdays[currentTimeAndDate.getDay()];
+            pDate = $("<p>").text("Date: " + dayOfWeek + " " + monthArray[month] + " " + day + " " + year)
+            currentWeatherDiv.append(pDate)
+            $("#currentWeather").append(currentWeatherDiv)
 
             var temp = response.main.temp;
             ptemp = $("<p>").text("Temperature: " + temp)
@@ -111,10 +123,11 @@ function getWeather() {
                     method: "GET"
                 })
                 .then(function (response) {
+                    var forecastWeatherDiv = $("<div.forecast>");
                     fiveDay = response;
                     pfiveDay = $("<p>").text("Five Day Forecast: " + fiveDay)
-                    currentWeatherDiv.append(pfiveDay)
-                    $("#currentWeather").append(currentWeatherDiv)
+                    forecastWeatherDiv.append(pfiveDay)
+                    $("#forecastWeather").append(forecastWeatherDiv)
                 })
 
 
