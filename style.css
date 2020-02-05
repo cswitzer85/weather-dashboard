@@ -9,7 +9,7 @@ header {
 
 main {
     float: right;
-    display: flexbox;
+    flex-wrap: wrap;
 
 }
 
@@ -28,8 +28,9 @@ section {
 }
 
 #cityNameInput {
-    width: 86%;
+    padding-right: 75px;
     height: 38px;
+    margin-left: -10px;
 }
 
 #searchButton {
