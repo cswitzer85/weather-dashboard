@@ -79,8 +79,23 @@ function getWeather() {
                 .then(function (response) {
                     var forecastWeatherDiv = $("<div.forecast>");
                     fiveDay = response;
-                    pfiveDay = $("<p>").text("Five Day Forecast: " + fiveDay)
-                    forecastWeatherDiv.append(pfiveDay)
+                    var fiveDayText = $("<p>").text("Five Day Forecast:")
+                    var tempK1 = fiveDay.list[0].main.temp;
+                    var tempF1 = (tempK1-273.15)*9/5+32
+                    pfiveDay1 = $("<p>").text(monthArray[month] + " " + (day+1) + " " + year + " ; Temperature: " + Math.floor(tempF1) + "degrees F")
+                    var tempK2 = fiveDay.list[8].main.temp;
+                    var tempF2 = (tempK2-273.15)*9/5+32
+                    pfiveDay2 = $("<p>").text(monthArray[month] + " " + (day+2) + " " + year + " ; Temperature: " + Math.floor(tempF2) + "degrees F")
+                    var tempK3 = fiveDay.list[16].main.temp;
+                    var tempF3 = (tempK3-273.15)*9/5+32
+                    pfiveDay3 = $("<p>").text(monthArray[month] + " " + (day+3) + " " + year + " ; Temperature: " + Math.floor(tempF3) + "degrees F")
+                    var tempK4 = fiveDay.list[24].main.temp;
+                    var tempF4 = (tempK4-273.15)*9/5+32
+                    pfiveDay4 = $("<p>").text(monthArray[month] + " " + (day+4) + " " + year + " ; Temperature: " + Math.floor(tempF4) + "degrees F")
+                    var tempK5 = fiveDay.list[36].main.temp;
+                    var tempF5 = (tempK5-273.15)*9/5+32
+                    pfiveDay5 = $("<p>").text(monthArray[month] + " " + (day+5) + " " + year + " ; Temperature: " + Math.floor(tempF5) + "degrees F")
+                    forecastWeatherDiv.append(fiveDayText, pfiveDay1, pfiveDay2, pfiveDay3, pfiveDay4, pfiveDay5);
                     $("#forecastWeather").append(forecastWeatherDiv)
                 })
 
