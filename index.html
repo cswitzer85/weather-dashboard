@@ -14,25 +14,27 @@
     <header>
         <h1>Weather Getter</h1>
     </header>
-    <main class="col-12 container-fluid>
+    <main class="col-12 container-fluid">
         <aside class="col-4">
             <div class="container-fluid">
                 <input type="text" id="cityNameInput" style="margin-top: 5px;" name="City Name" aria-label="City Name">
                 <button class="input-group-text" id="searchButton" onclick="getWeather()">Search</button>
-                <div class="container">Search history: <button id="clearHistoryButton" onclick="clearHist()">Clear History</button>
+                <div class="container">Search history: <button id="clearHistoryButton" onclick="clearHist()">Clear
+                        History</button>
                     <br>
-                <div id="searchHistory" class="container-fluid"></div>
+                    <div id="searchHistory" class="container-fluid"></div>
                 </div>
             </div>
         </aside>
-        <section>
-            <div id="currentWeather" class="col-6 container-fluid";>
+        <section class="col-12">
+            <div id="currentWeather" class="col-12 container-fluid" ;>
         </section>
-        <section>
-            <div id="forecastWeather" class="col-6 container-fluid";></div>
+        <section class="col-12">
+            <div id="forecastWeather" class="col-12 container-fluid" ;></div>
         </section>
     </main>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

@@ -26,14 +26,11 @@ aside {
     width: 20%;
     display: flex;
     float: left;
-    height: 700px;
-    /* background-color: lightgreen; */
 }
 
 section {
     display: flex;
     height: 350px;
-    /* background-color: lightsalmon; */
 }
 
 #cityNameInput {
@@ -48,12 +45,14 @@ section {
     margin-bottom: 25px;
     text-align: center;
 }
+
 #clearHistoryButton {
     margin-left: 10px;
     width: 110px;
     text-align: center;
 
 }
+
 button {
     width: 150px;
     margin-top: 5px;
@@ -70,6 +69,8 @@ button {
 div.tempHumWind {
     padding-right: 30px;
 }
+
+#currentWeather,
 #forecastWeather {
-    background-color: lightblue;
+    text-align: center;
 }
